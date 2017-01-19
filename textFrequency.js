@@ -86,4 +86,4 @@ var findFrequency = function (text) {
   return count
 };
 
-module.exports = findFrequency;
+// module.exports = findFrequency;
