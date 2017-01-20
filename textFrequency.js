@@ -83,7 +83,14 @@ var findFrequency = function (text) {
   for (var ii = 0; ii < textArray.length; ii++) {
     count[textArray[ii]] = (count[textArray[ii]] || 0) + 1;
   }
-  return count
+  var countArray = [];
+  for (var key in count) {
+    countArray.push({word: key, occurrence: count[key]})
+  }
+  return countArray
 };
+
+var inputString = 'fry fries fried frying spy spies spied sassed mulled willed willing gaffed gaffing fizzed talked talking booked booking ribbed ribbing checking padded padding hugged hugging yakked rammed running tipped stirred ratted revved checked potatoes heroes atlases masses sasses fizzes boxes fixes sketches marshes cats talks books atlas bus sass mass truss peas'
+findFrequency(inputString);
 
 // module.exports = findFrequency;

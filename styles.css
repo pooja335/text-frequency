@@ -1,3 +1,4 @@
+/*general styles for all states*/
 html, body {
   height: 100%;
   width: 100%;
@@ -9,20 +10,13 @@ body {
 
 * {
   font-family: 'Raleway', sans-serif;
-
 }
 
-.parent {
-  position: relative;
-  height: 100%;
-}
-
+/*styles for initial state*/
 .content {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -25%);
   background: none;
+  margin-top: 140px;
+  padding: 0px;
 }
 
 .title {
@@ -32,6 +26,18 @@ body {
 
 p.description {
   margin-bottom: 40px;
+}
+
+p.error-text {
+  display: none;
+}
+
+#results {
+  display: none;
+}
+
+.results-heading {
+  display: none;
 }
 
 .btn-custom {
@@ -58,4 +64,38 @@ p.description {
   font-size: 26px;
 }
 
-/*#f59670*/
+/*styles for error state*/
+.content.error .error-text {
+  display: block;
+}
+
+/*styles for successful results state*/
+.content.results {
+  margin-top: 30px;
+}
+
+.content.results p.description {
+  display: none;
+}
+
+.content.results .results-heading {
+  display: block;
+  font-size: 35px;
+}
+
+.content.results #results {
+  display: block;
+  width: 30vw;
+  max-height: 60vh; 
+  overflow: scroll;
+  margin: 0px auto 30px auto;
+}
+
+#results td {
+  border-color: black transparent black transparent;
+  width: 50%;
+}
+
+.content.results #upload {
+  zoom: 0.75;
+}

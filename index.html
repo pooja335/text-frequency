@@ -8,24 +8,26 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="parent">
-      <div class="jumbotron content text-center">
-        <h1 class="title">Word Frequency</h1>
-        <p class="description">Find the frequency of each word in a text file</p>
-        <div id="results"></div>
-        <button id="upload" class="btn-custom">
-          Upload File&nbsp
-          <i class="fa fa-upload" aria-hidden="true"></i>
-        </button>
-        <form class="hidden">
-          <input type="file" id="fileInput">
-        </form>
+    <div class="jumbotron content text-center">
+      <h1 class="title">Word Frequency</h1>
+      <h2 class="results-heading">Results</h2>
+      <p class="description">Find the frequency of each word in a text file</p>
+      <p class="error-text">Please make sure your file is a text file</p>
+      <div id="results">
+        <table class="table table-bordered">
+          <tbody id="results-body"></tbody>
+        </table>
       </div>
+      <button id="upload" class="btn-custom">
+        Upload File&nbsp
+        <i class="fa fa-upload" aria-hidden="true"></i>
+      </button>
+      <form class="hidden">
+        <input type="file" id="fileInput">
+      </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="index.js"></script>
-    <script src="textFrequency.js"></script>
+    <!--<script src="textFrequency.js"></script>-->
   </body>
 </html>
-
-
