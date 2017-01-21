@@ -3,7 +3,7 @@ var findFrequency = require('./wordFrequency');
 
 var makeTest = function(text, counts) {
   assert.deepEqual(findFrequency(text), counts);
-}
+};
 
 // each set of tests corresponds to a rule in wordFrequency.js
 
@@ -40,4 +40,4 @@ makeTest('talk talked talking', [{ word: 'talk', frequency: 3 }]);
 makeTest('book booked booking', [{ word: 'book', frequency: 3 }]);
 makeTest('cheat cheated cheating', [{ word: 'cheat', frequency: 3 }]);
 
-console.log('All tests passed!')
+console.log('All tests passed!');

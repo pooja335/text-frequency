@@ -99,7 +99,7 @@ p.error-text {
   display: block;
   width: 30vw;
   max-height: 60vh; 
-  overflow: scroll;
+  overflow-y: scroll;
   margin: 0px auto 30px auto;
   box-shadow: inset 0 -19px 15px -15px grey;
 }

@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
 $(function() {
   $('#upload').click(function() {
     $('#fileInput').click();
-  })
+  });
 
   // when a file is updated, either shows the results table or an appropriate error message
   $('#fileInput').change(function() {
@@ -16,18 +16,18 @@ $(function() {
         $('.content').removeClass('error').addClass('results');
         var countArray = findFrequency(evt.target.result);
         displayTable(countArray);
-      }
-      reader.onerror = function(evt) {
+      };
+      reader.onerror = function() {
         $('.content').removeClass('results').addClass('error');
         $('#error').text('An error occurred. Please try again');
-      }
+      };
     } else {
       $('.content').removeClass('results').addClass('error');
       $('#error').text('Please make sure your file is a text file');
     }
     return false;
-  })
-})
+  });
+});
 
 // displays the table with the frequency of each word
 function displayTable(countArray) {
@@ -36,6 +36,6 @@ function displayTable(countArray) {
   _.each(countArray, function(wordFrequency) {
     $resultsBody.append(
       '<tr><td>' + wordFrequency.word + '</td><td>' + wordFrequency.frequency + '</td></tr>'
-    )
-  })
+    );
+  });
 }

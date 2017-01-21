@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 if (typeof(require) !== 'undefined') {
   var _ = require('underscore');
@@ -46,7 +46,7 @@ var rules = [
     matcher: /\w+ing$/,
     stemmer: (str) => str.slice(0, -3)
   },
-]
+];
 
 // finds the root of each word according to the rules above
 function findRoot(word) {
@@ -60,22 +60,24 @@ function findRoot(word) {
 
 // finds the frequency of each word in the text file and returns the top 25
 function findFrequency(text) {
-  var textArray = text.toLowerCase().replace(/[^\w\s]|_/g, '').trim().split(/\s+/);
+  var textArray = text.toLowerCase()
+                      .replace(/[^\w\s]|_/g, '')
+                      .trim()
+                      .split(/\s+/);
   var count = {};
   for (var i = 0; i < textArray.length; i++) {
     var root = findRoot(textArray[i]);
     count[root] = (count[root] || 0) + 1;
   }
-  var countArray = _.map(count, function (frequency, word) {
-    return { word: word, frequency: frequency }
-  })
-  countArray = _.sortBy(countArray, 'frequency')
+  var countArray = _.map(count, function(frequency, word) {
+    return { word: word, frequency: frequency };
+  });
+  countArray = _.sortBy(countArray, 'frequency');
   return countArray.reverse().slice(0, 25);
 }
 
 if (typeof(module) !== 'undefined') {
-  module.exports = findFrequency
-}
-if (typeof(window) !== 'undefined') {
-  window.findFrequency = findFrequency
+  module.exports = findFrequency;
+} else if (typeof(window) !== 'undefined') {
+  window.findFrequency = findFrequency;
 }
