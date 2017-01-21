@@ -101,6 +101,7 @@ p.error-text {
   max-height: 60vh; 
   overflow: scroll;
   margin: 0px auto 30px auto;
+  box-shadow: inset 0 -19px 15px -15px grey;
 }
 
 #results td {
