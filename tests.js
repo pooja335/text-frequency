@@ -1,61 +1,43 @@
 var assert = require('assert');
-var findFrequency = require('./textFrequency');
-
-
-var inputString = 'fry fries fried frying spy spies spied sassed mulled willed willing gaffed gaffing fizzed talked talking booked booking ribbed ribbing checking padded padding hugged hugging yakked rammed running tipped stirred ratted revved checked potatoes heroes atlases masses sasses fizzes boxes fixes sketches marshes cats talks books atlas bus sass mass truss peas'
-findFrequency(inputString);
+var findFrequency = require('./wordFrequency');
 
 var makeTest = function(text, counts) {
   assert.deepEqual(findFrequency(text), counts);
 }
 
-// words that add an -es to pluralize
-makeTest('potato potatoes', { potato: 2 });
-makeTest('hero heroes', { hero: 2 });
-makeTest('mass masses', { mass: 2 });
+// each set of tests corresponds to a rule in wordFrequency.js
 
-// double consonant at end in the case of -ed or -ing
-// keep 2nd letter
-makeTest('sass sasses sassed sassing', { sass: 4 });
-makeTest('mull mulls mulled mulling', { mull: 4 });
-makeTest('gaff gaffs gaffed gaffing', { gaff: 4 });
-makeTest('fizz fizzes fizzed fizzing', { fizz: 4 });
-// remove 2nd letter
-makeTest('pad pads padded padding', { pad: 4 });
-makeTest('rib ribs ribbed ribbing', { rib: 4 });
-makeTest('yak yaks yakked yakking', { yak: 4 });
-makeTest('ram rams rammed ramming', { ram: 4 });
-makeTest('stir stirs stirred stirring', { stir: 4 });
+// corresponds to rule 1
+makeTest('fry fries fried', [{ word: 'fry', frequency: 3 }]);
+makeTest('spy spies spied', [{ word: 'spy', frequency: 3 }]);
 
-// // words that add only -d (vs -ed) for past tense
-// makeTest('love loves loved loving', { love: 4 });
-// makeTest('rate rates rated rating', { rate: 4 });
+// corresponds to rule 2
+makeTest('potato potatoes', [{ word: 'potato', frequency: 2 }]);
+makeTest('hero heroes', [{ word: 'hero', frequency: 2 }]);
+makeTest('mass masses', [{ word: 'mass', frequency: 2 }]);
+makeTest('stretch stretches', [{ word: 'stretch', frequency: 2 }]);
 
-// words ending in [consonant]-y
-makeTest('fry fries fried frying', { fry: 4 });
-makeTest('spy spies spied spying', { spy: 4 });
+// corresponds to rule 3
+makeTest('cat cats', [{ word: 'cat', frequency: 2 }]);
+makeTest('talk talks', [{ word: 'talk', frequency: 2 }]);
+makeTest('make makes', [{ word: 'make', frequency: 2 }]);
 
-// normal
-makeTest('talk talks talked talking', { talk: 4 });
-makeTest('book books booked booking', { book: 4 });
+// corresponds to rules 4 and 5
+makeTest('sass sassed sassing', [{ word: 'sass', frequency: 3 }]);
+makeTest('mull mulled mulling', [{ word: 'mull', frequency: 3 }]);
+makeTest('gaff gaffed gaffing', [{ word: 'gaff', frequency: 3 }]);
+makeTest('fizz fizzed fizzing', [{ word: 'fizz', frequency: 3 }]);
 
+// corresponds to rules 6 and 7
+makeTest('pad padded padding', [{ word: 'pad', frequency: 3 }]);
+makeTest('rib ribbed ribbing', [{ word: 'rib', frequency: 3 }]);
+makeTest('yak yakked yakking', [{ word: 'yak', frequency: 3 }]);
+makeTest('ram rammed ramming', [{ word: 'ram', frequency: 3 }]);
+makeTest('stir stirred stirring', [{ word: 'stir', frequency: 3 }]);
 
-makeTest('box boxes boxed boxing', { box: 4 });
-makeTest('sketch sketches sketched sketching', { sketch: 4 });
+// corresponds to rules 8 and 9
+makeTest('talk talked talking', [{ word: 'talk', frequency: 3 }]);
+makeTest('book booked booking', [{ word: 'book', frequency: 3 }]);
+makeTest('cheat cheated cheating', [{ word: 'cheat', frequency: 3 }]);
 
 console.log('All tests passed!')
-
-
-
-
-var file = document.getElementById("fileForUpload").files[0];
-    if (file) {
-        var reader = new FileReader();
-        reader.readAsText(file, "UTF-8");
-        reader.onload = function (evt) {
-            document.getElementById("fileContents").innerHTML = evt.target.result;
-        }
-        reader.onerror = function (evt) {
-            document.getElementById("fileContents").innerHTML = "error reading file";
-        }
-    }

@@ -72,6 +72,10 @@ p.error-text {
   font-size: 26px;
 }
 
+#another {
+  display: none;
+}
+
 /*styles for error state*/
 .content.error .error-text {
   display: block;
@@ -106,4 +110,8 @@ p.error-text {
 
 .content.results #upload {
   zoom: 0.75;
+}
+
+.content.results #another {
+  display: inline-block;
 }
