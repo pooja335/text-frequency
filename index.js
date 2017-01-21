@@ -119,7 +119,7 @@ var findFrequency = function (text) {
   var textNoPunc = text.filter(function (char) {
     return (/[\w\s]/).test(char);
   }).join('');
-  var textArray = textNoPunc.split(' ');
+  var textArray = textNoPunc.trim().split(/\s+/);
   for (var i = 0; i < textArray.length; i++) {
     textArray[i] = findRoot(textArray[i])
   }
@@ -128,9 +128,10 @@ var findFrequency = function (text) {
   for (var ii = 0; ii < textArray.length; ii++) {
     count[textArray[ii]] = (count[textArray[ii]] || 0) + 1;
   }
-  var countArray = [];
-  for (var key in count) {
-    countArray.push({word: key, occurrence: count[key]})
-  }
-  return countArray
+  var countArray = _.map(count, function(frequency, key) {
+    return {word: key, occurrence: frequency}
+  })
+  countArray = _.sortBy(countArray, 'occurrence')
+  return countArray.reverse().slice(0,25);
 };
+

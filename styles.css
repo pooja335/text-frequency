@@ -12,6 +12,14 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.github-fork-ribbon::before {
+  background-color: #a294ff;
+}
+
+.github-fork-ribbon::after {
+  line-height: 1em;
+}
+
 /*styles for initial state*/
 .content {
   background: none;
