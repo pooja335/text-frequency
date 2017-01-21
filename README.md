@@ -7,7 +7,7 @@ This app accepts a text document from the user, counts how often each word is us
 - Node >= 4
 
 ## Instructions
-View the app at [pooja335.github.io/word-frequency/](http://pooja335.github.io/word-frequency/)
+View the app at [http://pooja335.github.io/word-frequency/](http://pooja335.github.io/word-frequency/)
 
 To run the unit tests:
 
