@@ -1,0 +1,15 @@
+{
+  "name": "word-frequency",
+  "version": "1.0.0",
+  "dependencies": {
+    "underscore": "1.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pooja335/word-frequency"  
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node tests.js"
+  }
+}
