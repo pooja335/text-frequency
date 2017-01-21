@@ -2,8 +2,8 @@
 
 $(function() {
   $('#upload').click(function() {
-    $('#fileInput').click();
-  });
+    $('#fileInput').val('').click();
+  })
 
   // when a file is updated, either shows the results table or an appropriate error message
   $('#fileInput').change(function() {
