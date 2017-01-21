@@ -1,14 +1,16 @@
 # Word Frequency
 
 ## Summary
-This app accepts a text document from the user, counts how often each word is used in it, and reports the top 25 most frequently used. Words with the same root word (for example: talk, talks, talked) are counted as the same word. For a more information, see <link>Stemming Rules. 
+This app accepts a text document from the user, counts how often each word is used in it, and reports the top 25 most frequently used. Words with the same root word (for example: talk, talks, talked) are counted as the same word. For a more information, see [Stemming Rules](https://github.com/pooja335/word-frequency#stemming-rules).
 
 ## Requirements
+- Node >= 4
 
 ## Instructions
-View the app at pooja335.github.io/word-frequency
+View the app at [pooja335.github.io/word-frequency/](pooja335.github.io/word-frequency/)
 
 To run the unit tests:
+
 1. Download or clone this repository
 2. `npm install`
 3. `npm test`
@@ -27,6 +29,9 @@ This app finds the root of each word by trying to fit it into a broad category o
 9. If a word ends with `-ing`, remove `-ing`
 
 ## Libraries/Frameworks Used
+- Twitter Bootstrap
+- jQuery
+- Underscore.js
 
 ## Known Issues
 - Rule 3 above causes problems for singular words ending with s. For example, bus will get changed to bu. 
